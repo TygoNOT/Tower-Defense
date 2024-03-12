@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    //здесь храниться массив точек назначения, через которые враги передвигаются
+
     public static LevelManager main;
 
     public Transform startPoint;

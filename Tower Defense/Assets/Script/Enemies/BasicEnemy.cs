@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasicEnemy : Enemy
 {
+    //Первый базовый враг
     private void Update()
     {
         CallInUpdate();

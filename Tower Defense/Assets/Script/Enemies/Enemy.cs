@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    /// <summary>
+    /// Ѕазовый класс врага, где описаны свойства и методы свойственные каждому врагу,
+    /// такие как ходьба до цели, получение урона, смерть, победа(при дохождение до конца живыи),
+    /// брон€ и т.д
+    /// </summary>
     [Header("References")]
     [SerializeField] protected Rigidbody2D _enemyBody;
 
@@ -18,6 +23,7 @@ public class Enemy : MonoBehaviour
     protected Vector2 _direction;
     protected int _pathIndex, _currentHealth, _damageTaken;
 
+    //ѕри старте уровниваем индекс пути к нулю, ровн€ем здоровье к максимальной и даем цель(куда идти)
     private void Start()
     {
         _pathIndex = 0;
@@ -25,12 +31,16 @@ public class Enemy : MonoBehaviour
         _destination = LevelManager.main.pathPoints[_pathIndex];
     }
 
+    //Ёто метод который надо вызывать в апдейте любого дочерного врага
+    //¬ этом методе провер€етс€ дошел ли враг до точки поворота,
+    //если да, то враг получает следующую точку куда надо идти
     protected void CallInUpdate()
     {
         if (Vector2.Distance(_destination.position, transform.position) <= 0.1f)
         {
             _pathIndex++;
 
+            //ѕри достижении конца, враг уничтожаетс€ и вычитывает здоровье у врага
             if (LevelManager.main.pathPoints.Length == _pathIndex)
             {
                 Destroy(gameObject);
@@ -38,25 +48,31 @@ public class Enemy : MonoBehaviour
                 DoDamage();
                 return;
             }
+            //≈сли точка не конечна€, то враг идет дальше
             else
                 _destination = LevelManager.main.pathPoints[_pathIndex];
         }
 
+        //≈сли здоровье ровно или меньше нул€
         if (_currentHealth <= 0)
             EnemyDie();
     }
 
+    //ћетод вызываетс€ в фиксет апдейте в каждом враге
+    //Ѕлагодар€ ему враг двигаетс€ к последней точке
     protected void CallInFixedUpdate()
     {
         _direction = (_destination.position - transform.position).normalized;
         _enemyBody.velocity = _direction * _movementSpeed;
     }
 
+    //Ќанесение урона игроку
     protected void DoDamage()
     {
         LevelManager.main.Health -= _damage;
     }
 
+    //ѕолучение урона от башен
     public void TakeDamage(int damageType, int damageValue)
     {
         if (_armorType == damageType)
@@ -74,6 +90,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //—мерть
     protected void EnemyDie()
     {
         Destroy(gameObject);

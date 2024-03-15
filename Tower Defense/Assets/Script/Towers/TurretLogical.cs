@@ -1,3 +1,4 @@
+using System.Runtime.ConstrainedExecution;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,16 +7,22 @@ public class TurretLogical : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint; //Variable for turret handling
     [SerializeField] private LayerMask enemyMask; //Variable for enemy layer
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f; //Variable to determine turret range
-    [SerializeField] private float rotationSpeed = 5f; //Variable to determine the speed of rotation of the turret
+    [SerializeField] private float rotationSpeed = 200f; //Variable to determine the speed of rotation of the turret
+    [SerializeField] private float bps = 1f;  //Bullets Per Second
+
 
     private Transform target; //Enemy variable
+    private float timeUntilFire;
+
 
     private void Update()
     {
-        if (target != null)
+        if (target == null)
         {
             FindTarget();
             return;
@@ -27,6 +34,23 @@ public class TurretLogical : MonoBehaviour
         {
             target = null;
         }
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+
+            if (timeUntilFire > 1f / bps) {
+                Shoot();
+                timeUntilFire = 0f;
+            }
+        }
+    }
+
+    //Tower shoot
+    private void Shoot()
+    {
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+        bulletScript.SetTarget(target);
     }
 
     //Enemy search method 

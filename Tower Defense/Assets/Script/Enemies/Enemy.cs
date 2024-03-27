@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    //Nihuya ne ponyatno Ѕазовый класс врага
+
     /// <summary>
     /// Ѕазовый класс врага, где описаны свойства и методы свойственные каждому врагу,
     /// такие как ходьба до цели, получение урона, смерть, победа(при дохождение до конца живыи),
@@ -23,12 +27,15 @@ public class Enemy : MonoBehaviour
     protected Vector2 _direction;
     protected int _pathIndex, _currentHealth, _damageTaken;
 
+    private float _originalSpeed;
+
     //ѕри старте уровниваем индекс пути к нулю, ровн€ем здоровье к максимальной и даем цель(куда идти)
     private void Start()
     {
         _pathIndex = 0;
         _currentHealth = _maxHealthPoints;
         _destination = LevelManager.main.pathPoints[_pathIndex];
+        _originalSpeed = _movementSpeed;
     }
 
     //Ёто метод который надо вызывать в апдейте любого дочерного врага
@@ -95,5 +102,27 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         // Ќужно дать денег за убийство врага
+        // Xyecoc ymiraet
+    }
+
+    //Slow effect
+    public void ApplySlow(float duration, float slowFactor)
+    {
+        StartCoroutine(SlowEffect(duration, slowFactor));
+    }
+
+    //Coruutine to apply slow effect
+    private IEnumerator SlowEffect(float duration, float slowFactor)
+    {
+        if (_originalSpeed == _movementSpeed)
+        {
+            _movementSpeed *= slowFactor;
+            yield return new WaitForSeconds(duration);
+            _movementSpeed = _originalSpeed;
+        }
+        else
+        {
+            yield return new WaitForSeconds(0);
+        }
     }
 }

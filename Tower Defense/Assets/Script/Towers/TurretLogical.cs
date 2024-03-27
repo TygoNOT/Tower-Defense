@@ -1,26 +1,29 @@
+using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class TurretLogical : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform turretRotationPoint; //Variable for turret handling
-    [SerializeField] private LayerMask enemyMask; //Variable for enemy layer
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firingPoint;
+    [SerializeField] protected Transform turretRotationPoint; //Variable for turret handling
+    [SerializeField] protected LayerMask enemyMask; //Variable for enemy layer
+    [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected Transform firingPoint;
 
     [Header("Attribute")]
-    [SerializeField] private float targetingRange = 5f; //Variable to determine turret range
-    [SerializeField] private float rotationSpeed = 200f; //Variable to determine the speed of rotation of the turret
-    [SerializeField] private float bps = 1f;  //Bullets Per Second
+    [SerializeField] protected float targetingRange = 5f; //Variable to determine turret range
+    [SerializeField] protected float rotationSpeed = 200f; //Variable to determine the speed of rotation of the turret
+    [SerializeField] protected float bps = 1f;  //Bullets Per Second
 
 
-    private Transform target; //Enemy variable
-    private float timeUntilFire;
+    protected Transform target; //Enemy variable
+    protected float timeUntilFire;
 
 
-    private void Update()
+    protected virtual void Update()
     {
         if (target == null)
         {
@@ -46,15 +49,15 @@ public class TurretLogical : MonoBehaviour
     }
 
     //Tower shoot
-    private void Shoot()
+    protected virtual void Shoot()
     {
-        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity); //shoot blyat
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
     }
 
     //Enemy search method 
-    private void FindTarget()
+    protected virtual void FindTarget()
     {
         RaycastHit2D[] hit2Ds = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask); //Searching for an enemy in the turret action range
 
@@ -65,7 +68,7 @@ public class TurretLogical : MonoBehaviour
     }
 
     //Aiming the turret at the enemy
-    private void RotateTowardsTarget()
+    protected virtual void RotateTowardsTarget()
     {
         float angle = Mathf.Atan2(target.position.y - transform.position.y ,target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f; //Variable storing the degree of angle between the turret and the enemy
 
@@ -75,14 +78,15 @@ public class TurretLogical : MonoBehaviour
     }
 
     //Method to check is enemy in range turret
-    private bool CheckTargetIsInRange()
+    protected virtual bool CheckTargetIsInRange()
     {
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
     // Range visibility in Game
-    private void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         Handles.color = Color.red; //Range color
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange); //Drawing turretRange
     }
 }
+    

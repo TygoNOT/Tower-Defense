@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -9,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int bulletDamage = 1;
+    [SerializeField] public float bulletDamage = 2;
 
     private Transform target; //Variable for enemy
 
@@ -29,11 +30,16 @@ public class Bullet : MonoBehaviour
 
     }
 
-    //What happend after Enemy got shoot
+    //What happend after Enemy got shot
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<Health>().TakeDamege(bulletDamage);
-        Destroy(gameObject);
+        Health enemyHealth = collision.gameObject.GetComponent<Health>();
+        if (enemyHealth != null)
+        {
+            Debug.Log(bulletDamage);
+            enemyHealth.TakeDamege(bulletDamage);
+            Destroy(gameObject);
+        }
     }
 }
 

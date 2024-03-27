@@ -3,13 +3,14 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private int hitPoints = 2; //How many hits enemy need to die
+    [SerializeField] private float hitPoints = 2f; //How many hits enemy need to die
 
     private bool isDestroyed = false;
-    public void TakeDamege(int dmg)
+    public void TakeDamege(float dmg)
     {
         hitPoints -= dmg;
-
+        Debug.Log(dmg);
+        Debug.Log(hitPoints);
         if (hitPoints <= 0 && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();

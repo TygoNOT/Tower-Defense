@@ -9,8 +9,6 @@ public class Health : MonoBehaviour
     public void TakeDamege(float dmg)
     {
         hitPoints -= dmg;
-        Debug.Log(dmg);
-        Debug.Log(hitPoints);
         if (hitPoints <= 0 && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();

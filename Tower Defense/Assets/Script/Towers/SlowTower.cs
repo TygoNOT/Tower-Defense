@@ -7,9 +7,14 @@ public class SlowTower : TurretLogical
     [Header("Slow Tower Attributes")]
     [SerializeField] private float slowDuration = 3f; // Slow Duration (secs) for the enemies
     [SerializeField] private float slowFactor = 0.7f; //Decreasing speed of the enemies
-    [SerializeField] private float percentageOfDmg = 0.5f; //Decreasing damage by percentage
 
-    
+    /// <summary>
+    /// Реп про Равшана
+    /// БЕЕЕЕЕ! Это крик тех, кто свободен,
+    /// Кто готов бороться, кто верит в себя.
+    /// БЕЕЕЕЕ! Это не слабость, а мощь,
+    /// Когда бараны ревут, знай, они на взводе.
+    /// </summary>
 
     protected override void Update()
     {

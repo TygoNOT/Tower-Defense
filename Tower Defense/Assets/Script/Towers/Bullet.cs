@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 
 
     [Header("Attributes")]
+    [SerializeField] private int damageType = 0;
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] public float bulletDamage = 2;
 
@@ -33,11 +34,10 @@ public class Bullet : MonoBehaviour
     //What happend after Enemy got shot
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Health enemyHealth = collision.gameObject.GetComponent<Health>();
+        Enemy enemyHealth = collision.gameObject.GetComponent<Enemy>();
         if (enemyHealth != null)
         {
-            Debug.Log(bulletDamage);
-            enemyHealth.TakeDamege(bulletDamage);
+            enemyHealth.TakeDamage(damageType, bulletDamage);
             Destroy(gameObject);
         }
     }

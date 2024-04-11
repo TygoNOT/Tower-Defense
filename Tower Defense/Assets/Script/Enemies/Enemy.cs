@@ -29,9 +29,9 @@ public class Enemy : MonoBehaviour
     protected Vector2 _direction;
     protected int _pathIndex;
     protected bool _isDead;
-    public float _currentHealth;
+    public float _currentHealth, _originalSpeed;
 
-    private float _originalSpeed, _damageTaken;
+    private float _damageTaken;
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     }
 
     //При старте уровниваем индекс пути к нулю, ровняем здоровье к максимальной и даем цель(куда идти)
-    private void Start()
+    protected void CallInStart()
     {
         _pathIndex = 0;
         _currentHealth = _maxHealthPoints;

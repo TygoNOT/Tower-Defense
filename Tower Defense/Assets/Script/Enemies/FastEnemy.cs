@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class FastEnemy : Enemy
 {
-    void Update()
-    {
-        CallInUpdate();
-    }
+    private void Start() => CallInStart();
 
-    private void FixedUpdate()
-    {
-        CallInFixedUpdate();
-    }
+    void Update() => CallInUpdate();
+
+    private void FixedUpdate() => CallInFixedUpdate();
 }

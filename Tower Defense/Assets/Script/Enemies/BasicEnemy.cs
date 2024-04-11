@@ -5,13 +5,7 @@ using UnityEngine;
 public class BasicEnemy : Enemy
 {
     //Первый базовый враг
-    private void Update()
-    {
-        CallInUpdate();
-    }
+    private void Update() => CallInUpdate();
 
-    private void FixedUpdate()
-    {
-        CallInFixedUpdate();
-    }
+    private void FixedUpdate() => CallInFixedUpdate();
 }

@@ -75,7 +75,6 @@ public class EnemySpawner : MonoBehaviour
     //Спавн врага из массива
     private void SpawnEnemy()
     {
-        
         _enemyToSpawn = _enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Length - 1)];
         Instantiate(_enemyToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }

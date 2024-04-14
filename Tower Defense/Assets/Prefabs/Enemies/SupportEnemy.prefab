@@ -242,9 +242,10 @@ MonoBehaviour:
   _maxHealthPoints: 10
   _movementSpeed: 1.5
   _armorType: 0
-  _armorPoint: 0.9
+  _armorPoint: 0.1
   _damage: 1
   _currentHealth: 0
+  _originalSpeed: 0
   _abilityRange: 5
   _healValue: 0.05
   _abilityCooldown: 5

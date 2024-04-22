@@ -204,4 +204,3 @@ MonoBehaviour:
   bps: 1
   slowDuration: 3
   slowFactor: 0.4
-  percentageOfDmg: 0.75

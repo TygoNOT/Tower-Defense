@@ -59,6 +59,7 @@ public class SupportEnemy : Enemy
     {
         while (!_isDead)
         {
+            yield return new WaitForSeconds(_abilityCooldown);
             _movementSpeed = 0;
             FindAlly();
 
@@ -71,7 +72,7 @@ public class SupportEnemy : Enemy
             HealAlly();
             Debug.Log("Ally healed");
             _movementSpeed = _originalSpeed;
-            yield return new WaitForSeconds(_abilityCooldown);
+
         }
     }
 }

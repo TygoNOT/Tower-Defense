@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-
+    
 
     [Header("Attributes")]
     [SerializeField] private int damageType = 0;

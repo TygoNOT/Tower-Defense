@@ -252,8 +252,10 @@ MonoBehaviour:
   _maxHealthPoints: 15
   _movementSpeed: 1
   _armorType: 0
-  _armorPoint: 3
+  _armorPoint: 1
   _damage: 1
+  _currentHealth: 0
+  _originalSpeed: 0
 --- !u!114 &3752393783939520511
 MonoBehaviour:
   m_ObjectHideFlags: 0

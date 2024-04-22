@@ -14,6 +14,9 @@ public class LevelManager : MonoBehaviour
 
     [Range(1, 20)] public int Health;
 
+    public int currency;
+
+
     private void Awake()
     {
         main = this;
@@ -22,5 +25,30 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
 
+    }
+
+    private void Start()
+    {
+        currency = 1000;
+    }
+
+    public void IncreaseCurrency(int amount)
+    {
+        currency += amount;
+    }
+
+    public bool SpendCurrency(int amount)
+    {
+        if(amount <= currency)
+        {
+            //buy tower script
+            currency -= amount;
+            return true;
+        }
+        else
+        {
+            Debug.Log("You do not have enough money");
+            return false;
+        }
     }
 }

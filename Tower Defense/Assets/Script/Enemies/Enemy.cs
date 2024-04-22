@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField, Range(0, 1), Tooltip("Не изменяйте значение")] protected int _armorType;
     [SerializeField, Range(0.01f, 1)] protected float _armorPoint;
     [SerializeField, Range(0, 20)] protected int _damage;
+    [SerializeField] private int CurrenceWorth = 5;
 
     private HealthBar _healthBar;
 
@@ -114,6 +115,7 @@ public class Enemy : MonoBehaviour
     protected void EnemyDie()
     {
         EnemySpawner.onEnemyDestroy.Invoke();
+        LevelManager.main.IncreaseCurrency(CurrenceWorth);
         _isDead = true;
         Destroy(gameObject);
         // Нужно дать денег за убийство врага

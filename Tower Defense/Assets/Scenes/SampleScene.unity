@@ -4669,7 +4669,7 @@ MonoBehaviour:
   - {fileID: 5084875619572248351, guid: 3281a89948bc2424d8db863cec03590f, type: 3}
   - {fileID: 1462880115399754074, guid: 8608d718a2ab3514fa399c9983ee318a, type: 3}
   - {fileID: 3080589082214389057, guid: 02cfba8f457a92847b7b4fcf0add2bb1, type: 3}
-  _baseEnemies: 9
+  _baseEnemies: 2
   _enemiesPerSecond: 0.5
   _timeBetweenWaves: 5
   _difficulityFactor: 0.75

@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     protected Transform _destination;
     protected Vector2 _direction;
     protected int _pathIndex;
-    protected bool _isDead;
+    public bool _isDead;
     public float _currentHealth, _originalSpeed;
 
     private float _damageTaken;
@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
     }
 
     //Смерть
-    protected void EnemyDie()
+    public void EnemyDie()
     {
         EnemySpawner.onEnemyDestroy.Invoke();
         LevelManager.main.IncreaseCurrency(CurrenceWorth);

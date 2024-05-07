@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     
 
     [Header("Attributes")]
-    [SerializeField] private int damageType = 0;
+    [SerializeField] protected int damageType = 0;
     [SerializeField] private float bulletSpeed = 5f;
     [SerializeField] public float bulletDamage = 2;
 
@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
     }
 
     //What happend after Enemy got shot
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Enemy enemyHealth = collision.gameObject.GetComponent<Enemy>();
         if (enemyHealth != null)

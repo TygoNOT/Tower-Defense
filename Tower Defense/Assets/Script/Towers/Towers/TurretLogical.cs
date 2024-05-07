@@ -82,6 +82,7 @@ public class TurretLogical : MonoBehaviour
     {
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
+
     // Range visibility in Game
     protected virtual void OnDrawGizmosSelected()
     {

@@ -437,8 +437,10 @@ MonoBehaviour:
   _maxHealthPoints: 10
   _movementSpeed: 1
   _armorType: 0
-  _armorPoint: 1
+  _armorPoint: 0.01
   _damage: 1
+  CurrenceWorth: 5
+  _isDead: 0
   _currentHealth: 0
   _originalSpeed: 0
 --- !u!114 &7466388816018490661

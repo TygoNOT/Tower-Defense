@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1658576409535533192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3259391360058262661}
+  - component: {fileID: 8999115830692406831}
+  - component: {fileID: 6751298729050717555}
+  - component: {fileID: 8311848291895160609}
+  m_Layer: 0
+  m_Name: GameManager 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3259391360058262661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658576409535533192}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5724642, y: -0.13831477, z: 0.07413921}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8999115830692406831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658576409535533192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0f1acc44425da4997de83aedaff3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 0}
+  pathPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Health: 20
+  currency: 5000
+--- !u!114 &6751298729050717555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658576409535533192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4fd436f1266234f9916ae1dbe0dbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemiesPrefabs:
+  - {fileID: 5084875619572248351, guid: 4a7d0eb406cae8e4393054b9d8a05837, type: 3}
+  - {fileID: 5084875619572248351, guid: 3281a89948bc2424d8db863cec03590f, type: 3}
+  - {fileID: 1462880115399754074, guid: 8608d718a2ab3514fa399c9983ee318a, type: 3}
+  - {fileID: 3080589082214389057, guid: 02cfba8f457a92847b7b4fcf0add2bb1, type: 3}
+  _baseEnemies: 6
+  _enemiesPerSecond: 0.5
+  _timeBetweenWaves: 1
+  _difficulityFactor: 1.97
+  _waveIndex: 0
+  _enemiesAlive: 0
+  _enemiesLeftToSpawn: 0
+  _timeSinceLastSpawn: 0
+  _isSpawning: 0
+--- !u!114 &8311848291895160609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658576409535533192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6ca7aeede9433409116da68ac643ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towers:
+  - name: Classic Turret
+    cost: 60
+    towerPrefab: {fileID: 5125009670779605447, guid: 8b08def99e669fa419b1e1385916e28f, type: 3}
+    id: 1
+  - name: Slow Turret
+    cost: 120
+    towerPrefab: {fileID: 7430955572721330152, guid: 229dedff2a1c2104ca717d92ae3bc90a, type: 3}
+    id: 2
+  - name: Machine Gun
+    cost: 160
+    towerPrefab: {fileID: 1602482858926994975, guid: 48a14f66820981540a60696ea05cea0e, type: 3}
+    id: 3
+  plot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  buildMenu: {fileID: 0}

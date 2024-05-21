@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public Transform startPoint;
     public Transform[] pathPoints;
+    protected bool gameOver;
 
     [Range(1, 20)] public int Health;
 
@@ -20,16 +21,18 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         main = this;
-    }
-
-    private void Update()
-    {
-
+        gameOver = false;
     }
 
     private void Start()
     {
         currency = 1000;
+    }
+
+    private void Update()
+    {
+        if (Health <= 0)
+            GameOver();
     }
 
     public void IncreaseCurrency(int amount)
@@ -50,5 +53,10 @@ public class LevelManager : MonoBehaviour
             Debug.Log("You do not have enough money");
             return false;
         }
+    }
+
+    private void GameOver()
+    {
+        
     }
 }

@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour
     protected void DoDamage()
     {
         LevelManager.main.Health -= _damage;
+        Handheld.Vibrate();
     }
 
     //Получение урона от башен

@@ -10,7 +10,7 @@ public class SupportEnemy : Enemy
     [SerializeField, Range(1, 5)] private float _abilityCooldown = 5;
     [SerializeField] protected LayerMask enemyMask;
 
-    private Enemy _ally;
+    private Enemy _ally = null;
 
     private void Start()
     {
@@ -60,6 +60,7 @@ public class SupportEnemy : Enemy
         while (!_isDead)
         {
             yield return new WaitForSeconds(_abilityCooldown);
+
             _movementSpeed = 0;
             FindAlly();
 

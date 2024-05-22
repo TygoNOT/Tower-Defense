@@ -252,7 +252,11 @@ MonoBehaviour:
   _maxHealthPoints: 15
   _movementSpeed: 1
   _armorType: 0
+<<<<<<< HEAD
   _armorPoint: 1
+=======
+  _armorPoint: 0.5
+>>>>>>> 1454d7f5f69d1757b8776cbf04f02bb14602f4e9
   _damage: 1
   CurrenceWorth: 5
   _isDead: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2471167233770217032}
   m_Layer: 0
   m_Name: Laser Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,8 @@ MonoBehaviour:
   targetingRange: 2.83
   rotationSpeed: 200
   bps: 2
+  origin: {fileID: 7445943794586115407}
+  laserPrefab: {fileID: 4461652866009527816, guid: 5e780b510b6bb3041b461625260ac854, type: 3}
 --- !u!1 &5809174812736570575
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 630851487, guid: b9c3f43f4b4a6854a9ea3a038cde95f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

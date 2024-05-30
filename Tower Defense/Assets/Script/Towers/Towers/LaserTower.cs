@@ -18,6 +18,7 @@ public class LaserTower : TurretLogical
 
     private void Start()
     {
+        base.Start();
         laser = bulletPrefab.GetComponent<Bullet>();
         if (laser != null)
         {
@@ -125,5 +126,15 @@ public class LaserTower : TurretLogical
         }
 
         lineController.SetEndPosition(endPosition);
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+
+        if (laser != null)
+        {
+            laser.bulletDamage = 0.25f; 
+        }
     }
 }

@@ -17,11 +17,22 @@ public class TurretLogical : MonoBehaviour
     [SerializeField] protected float targetingRange = 5f; //Variable to determine turret range
     [SerializeField] protected float rotationSpeed = 200f; //Variable to determine the speed of rotation of the turret
     [SerializeField] protected float bps = 1f;  //Bullets Per Second
+    [SerializeField] protected int baseUpgradeCost = 100;
+    private int level = 1;
 
-
+    private float bpsBase;
+    private float targetingRangeBase;
+    
     protected Transform target; //Enemy variable
     protected float timeUntilFire;
 
+
+
+     protected void Start()
+    {
+        bpsBase = bps;
+        targetingRangeBase = targetingRange;  
+    }
 
     protected virtual void Update()
     {
@@ -48,6 +59,36 @@ public class TurretLogical : MonoBehaviour
         }
     }
 
+
+    public virtual void Upgrade()
+    {
+        if (CalculateCost() > LevelManager.main.currency)
+        {
+            Debug.Log("You do not have enough money");
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(CalculateCost());
+        level++;
+        bps = CalculateBps();
+        targetingRange = CalculateRange();
+        
+        BuildManager.main.CloseUpgradeMenu();
+    }
+
+    private float CalculateBps()
+    {
+        return bpsBase * Mathf.Pow(level, 0.6f);
+    }
+    private float CalculateRange()
+    {
+        return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+
+    private int CalculateCost()
+    {
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
+    }
     //Tower shoot
     protected virtual void Shoot()
     {

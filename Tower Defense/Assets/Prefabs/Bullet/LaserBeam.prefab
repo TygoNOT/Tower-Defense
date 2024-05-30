@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7467888765865087094}
   m_Layer: 0
   m_Name: LaserBeam
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.0021247864
         value: 1
         inSlope: 0
         outSlope: 0

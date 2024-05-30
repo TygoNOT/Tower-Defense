@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,11 +10,14 @@ public class Plot : MonoBehaviour
     
     public BuildManager buildManager;
     public GameObject buildButton;
+    public GameObject towerUpgradeButton;
     public GameObject selectedBuildPoint;
+    public GameObject selectedTower;
     public Vector2 plotPosition;
     private Color startColor;
     public int id;
     private static int nextID = 1;
+    public GameObject currentTower;
 
     private void Awake()
     {
@@ -41,30 +45,42 @@ public class Plot : MonoBehaviour
         sr.color = startColor;
     }
 
+    private void Update()
+    {
+        
+
+    }
     private void OnMouseDown()
     {
         Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePoint, Vector2.zero);
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            buildManager.OpenBuildMenu();
-            if (hit !=false)
+            if (hit.collider != null)
             {
                 selectedBuildPoint = hit.transform.gameObject;
-                if (selectedBuildPoint.tag == "Build Point") {
+                buildManager.SetSelectedPlot(id, transform.position, this); 
 
+                if (currentTower != null)
+                {
+                    selectedTower = currentTower;
+                    buildManager.OpenUpgradeMenu();
+                    towerUpgradeButton.transform.position = Camera.main.WorldToScreenPoint(selectedBuildPoint.transform.position);
+                    return;
+                }
+
+                if (selectedBuildPoint.tag == "Build Point")
+                {
+                    buildManager.OpenBuildMenu();
                     Debug.Log("Selected Plot ID: " + id);
                     buildButton.SetActive(true);
                     buildButton.transform.position = Camera.main.WorldToScreenPoint(selectedBuildPoint.transform.position);
-                    buildManager.SetSelectedPlot(id, transform.position);
                 }
-            }
-
-            else if (buildButton.activeInHierarchy == true) {
-                buildButton.SetActive(false);
             }
         }
     }
-
-    
+    public void SetTower(GameObject tower)
+    {
+        currentTower = tower;
+    }
 }

@@ -16,8 +16,6 @@ Material:
   - _ALPHABLEND_ON
   - _EMISSION
   - _FADING_ON
-  - _METALLICGLOSSMAP
-  - _NORMALMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0

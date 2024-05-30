@@ -138,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 2034840619, guid: 6079abbb7acbeb74f92e45d8ba75ca09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 6364407600938202884}
   m_Layer: 0
   m_Name: Electric Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,6 +266,3 @@ MonoBehaviour:
   targetingRange: 2.83
   rotationSpeed: 200
   bps: 3
-  firingPoint2: {fileID: 3522127436669409696}
-  firingPoint3: {fileID: 521736283308447356}
-  numberOfTargets: 3

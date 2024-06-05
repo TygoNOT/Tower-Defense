@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 5068869549591844490}
   - component: {fileID: 7796508439917593854}
   - component: {fileID: 3752393783939520511}
+  - component: {fileID: 1677940046791540378}
   m_Layer: 6
   m_Name: SupportEnemy
   m_TagString: Enemy
@@ -153,8 +154,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 0.9056604, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1864015428, guid: c3258cba37b8aee45b1fc78f6628a31f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -239,12 +240,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBody: {fileID: 54525895153033036}
-  _maxHealthPoints: 10
+  _animator: {fileID: 0}
+  _maxHealthPoints: 10.5
   _movementSpeed: 1
   _armorType: 0
   _armorPoint: 1
-  _damage: 1
-  CurrenceWorth: 5
+  _damage: 0
+  _headBounty: 5
   _isDead: 0
   _currentHealth: 0
   _originalSpeed: 0
@@ -267,6 +269,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 218253140281016745}
+--- !u!95 &1677940046791540378
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084875619572248351}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec3d7cff4009d3d4d8af55714cb509b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5225137320930820170
 GameObject:
   m_ObjectHideFlags: 0

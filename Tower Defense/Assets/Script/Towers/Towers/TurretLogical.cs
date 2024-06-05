@@ -62,7 +62,7 @@ public class TurretLogical : MonoBehaviour
 
     public virtual void Upgrade()
     {
-        if (CalculateCost() > LevelManager.main.currency)
+        if (CalculateCost() > LevelManager.main.money)
         {
             Debug.Log("You do not have enough money");
             return;

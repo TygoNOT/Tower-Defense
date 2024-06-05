@@ -49,3 +49,6 @@ TagManager:
   - name: Turrets
     uniqueID: 4215502751
     locked: 0
+  - name: Highest
+    uniqueID: 1976327901
+    locked: 0

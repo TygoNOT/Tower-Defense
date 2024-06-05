@@ -1,6 +1,6 @@
     using System.Collections;
     using System.Collections.Generic;
-using UnityEngine;
+    using UnityEngine;
     using UnityEngine.EventSystems;
 
     public class CameraMovement : MonoBehaviour
@@ -8,41 +8,35 @@ using UnityEngine;
         Vector3 hitPosition = Vector3.zero;
         Vector3 currentPosition = Vector3.zero;
         Vector3 cameraPosition = Vector3.zero;
-        public GameObject Point;
 
-    public BuildManager buildManager;
-        void Start()
-        {
-        
-        }
+        public GameObject Point;
+        public BuildManager buildManager;
+
 
         // Update is called once per frame
         void Update()
         {
+            if (LevelManager.main.gamePaused || LevelManager.main.gameOver)
+                return;
+
             if(Input.GetMouseButtonDown(0))
             {
                 hitPosition = Input.mousePosition;
                 cameraPosition = transform.position;
-            Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePoint, Vector2.zero);
-            Point = hit.transform.gameObject;
+                Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(mousePoint, Vector2.zero);
+                Point = hit.transform.gameObject;
+            }
 
-        }
-
-        if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
- 
                 currentPosition = Input.mousePosition;
-            if (Point.CompareTag("Build Point")) {
-                return;
+                if (Point.CompareTag("Build Point"))
+                    return;
+                else
+                    DragTheCamera();
             }
-            else {
-                DragTheCamera();
-            }
-
         }
-    }
-
         private void DragTheCamera()
         {
             Vector3 direction = Camera.main.ScreenToWorldPoint(currentPosition) - Camera.main.ScreenToWorldPoint(hitPosition);
@@ -52,5 +46,4 @@ using UnityEngine;
             transform.position = newPosition;
 
         }
-
     }

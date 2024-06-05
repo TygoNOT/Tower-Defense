@@ -155,7 +155,7 @@ public class BuildManager : MonoBehaviour
             return;
         }
         
-        if (towerToBuild.cost > LevelManager.main.currency)
+        if (towerToBuild.cost > LevelManager.main.money)
         {
             Debug.Log("You don't have enough money to place this tower");
             return;

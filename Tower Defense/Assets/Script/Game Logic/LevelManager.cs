@@ -9,43 +9,63 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager main;
 
+    [Header("Game Variable")]
+    [Range(1, 20), Tooltip("The amount of HP that player has")] public int health;
+    [Range(10, 200), Tooltip("Number of enimies, that should be killed to reach boss of the level")] public int doomLevel;
+    [Range(500, 1500), Tooltip("Родные узбекские сумы")] public int money;
+
+    [Header("Path attributes")]
     public Transform startPoint;
     public Transform[] pathPoints;
-    protected bool gameOver;
-
-    [Range(1, 20)] public int Health;
-
-    public int currency;
-
+   
+    [HideInInspector] public bool gameOver;
+    [HideInInspector] public bool gamePaused;
+    [HideInInspector] public bool overWave;
+    [HideInInspector] public bool overDoom;
 
     private void Awake()
     {
         main = this;
         gameOver = false;
-    }
-
-    private void Start()
-    {
-        currency = 1000;
+        gamePaused = false;
+        overWave = false;
+        overDoom = false;
     }
 
     private void Update()
     {
-        if (Health <= 0)
+        if (gameOver)
+            return;
+
+        if (health <= 0)
             GameOver();
+
+        if (doomLevel == 0 && !overWave)
+            FinishWave();
+
+        if (overDoom)
+            FinishLevel();
+
+        if (!gamePaused && Input.GetKeyDown(KeyCode.Escape))
+            UIManager.main.PauseBtn();
+        else if (gamePaused && Input.GetKeyDown(KeyCode.Escape))
+            UIManager.main.ContinueBtn();
+
+        if (!gamePaused && Input.GetKeyDown(KeyCode.W))
+            FinishLevel();
     }
 
     public void IncreaseCurrency(int amount)
     {
-        currency += amount;
+        money += amount;
     }
 
     public bool SpendCurrency(int amount)
     {
-        if(amount <= currency)
+        if(amount <= money)
         {
             //buy tower script
-            currency -= amount;
+            money -= amount;
             return true;
         }
         else
@@ -55,8 +75,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void FinishWave()
+    {
+        overWave = true;
+    }
+
+    public void FinishLevel()
+    {
+        Time.timeScale = 0;
+        gameOver = true;
+        UIManager.main.GameWonMenu();
+    }
+
     private void GameOver()
     {
-        
+        Time.timeScale = 0;
+        gameOver = true;
+        UIManager.main.GameOverMenu();
     }
 }

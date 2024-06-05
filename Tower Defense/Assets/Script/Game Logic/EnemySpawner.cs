@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] _enemiesPrefabs;
+    [SerializeField] private GameObject _bossPrefab;
 
     [Header("Attributes")]
     [SerializeField, Range(1, 15)] private int _baseEnemies = 8;
@@ -21,13 +22,18 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject _enemyToSpawn;
 
-    [SerializeField] private int _waveIndex, _enemiesAlive, _enemiesLeftToSpawn;
+    [SerializeField] private int _enemiesAlive, _enemiesLeftToSpawn;
     [SerializeField] private float _timeSinceLastSpawn;
     [SerializeField] private bool _isSpawning = false;
+    private bool _bossFight = false;
+
+    public static EnemySpawner main;
+    public int _waveIndex;
 
     //В эвейке настраиваем событие на смерть врага
     private void Awake()
     {
+        main = this;
         onEnemyDestroy = new UnityEvent();
         onEnemyDestroy.AddListener(EnemyKilled);
     }
@@ -43,8 +49,11 @@ public class EnemySpawner : MonoBehaviour
     //А если спавнятся, сравниваем время с ласт спавном и спавним врагов
     private void Update()
     {
-        if (!_isSpawning)
+        if (!_isSpawning || _bossFight)
             return;
+
+        if (LevelManager.main.overWave && _enemiesLeftToSpawn == 0 && _enemiesAlive == 0)
+            SpawnBoss();
 
         _timeSinceLastSpawn += Time.deltaTime;
         if (_timeSinceLastSpawn > (1 / _enemiesPerSecond) && _enemiesLeftToSpawn > 0)
@@ -79,6 +88,12 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(_enemyToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 
+    public void SpawnBoss()
+    {
+        _bossFight = true;
+        Instantiate(_bossPrefab, LevelManager.main.startPoint.position, Quaternion.identity);
+    }
+
     //Рассчет сколько врагов должно быть на текущей волне
     private int EnemiesPerWave()
     {
@@ -89,6 +104,7 @@ public class EnemySpawner : MonoBehaviour
     private void EnemyKilled()
     {
         _enemiesAlive--;
+        LevelManager.main.doomLevel--;
     }
 
     //Начало новой волны

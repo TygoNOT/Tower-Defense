@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     [Header("References")]
     [SerializeField] protected Rigidbody2D _enemyBody;
+    [SerializeField] protected Animator _animator;
 
     [Header("Properties")]
     [SerializeField, Range(1, 100)] public float _maxHealthPoints;
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour
     [SerializeField, Range(0, 1), Tooltip("Не изменяйте значение")] protected int _armorType;
     [SerializeField, Range(0.01f, 1)] protected float _armorPoint;
     [SerializeField, Range(0, 20)] protected int _damage;
-    [SerializeField] private int CurrenceWorth = 5;
+    [SerializeField] protected int _headBounty = 5;
 
     private HealthBar _healthBar;
 
@@ -55,6 +56,9 @@ public class Enemy : MonoBehaviour
     //если да, то враг получает следующую точку куда надо идти
     protected void CallInUpdate()
     {
+        if (_isDead) 
+            return;
+
         if (Vector2.Distance(_destination.position, transform.position) <= 0.1f)
         {
             _pathIndex++;
@@ -81,6 +85,9 @@ public class Enemy : MonoBehaviour
     //Благодаря ему враг двигается к последней точке
     protected void CallInFixedUpdate()
     {
+        if (_isDead)
+            return;
+
         _direction = (_destination.position - transform.position).normalized;
         _enemyBody.velocity = _direction * _movementSpeed;
     }
@@ -88,7 +95,7 @@ public class Enemy : MonoBehaviour
     //Нанесение урона игроку
     protected void DoDamage()
     {
-        LevelManager.main.Health -= _damage;
+        LevelManager.main.health -= _damage;
         Handheld.Vibrate();
     }
 
@@ -113,10 +120,10 @@ public class Enemy : MonoBehaviour
     }
 
     //Смерть
-    public void EnemyDie()
+    public virtual void EnemyDie()
     {
         EnemySpawner.onEnemyDestroy.Invoke();
-        LevelManager.main.IncreaseCurrency(CurrenceWorth);
+        LevelManager.main.IncreaseCurrency(_headBounty);
         _isDead = true;
         Destroy(gameObject);
         // Нужно дать денег за убийство врага

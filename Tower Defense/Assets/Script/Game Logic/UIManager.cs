@@ -53,6 +53,7 @@ public class UIManager : MonoBehaviour
 
     public void NextLvlBtn()
     {
+        UnLockLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -66,6 +67,15 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void UnLockLevel()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+
+        if (currentLevel >= PlayerPrefs.GetInt("levels"))
+        {
+            PlayerPrefs.SetInt("levels", currentLevel + 1);
+        }
+    }
     public void GameOverMenu()
     {
         _gameOverMenu.SetActive(true);
@@ -74,6 +84,7 @@ public class UIManager : MonoBehaviour
     public void GameWonMenu()
     {
         _gameWonMenu.SetActive(true);
+        UnLockLevel();
     }
 
     public void DoomLevelNum()

@@ -441,7 +441,7 @@ MonoBehaviour:
   _armorType: 0
   _armorPoint: 0.75
   _damage: 20
-  _headBounty: 5
+  _headBounty: 1
   _isDead: 0
   _currentHealth: 0
   _originalSpeed: 0

@@ -265,4 +265,5 @@ MonoBehaviour:
   firingPoint: {fileID: 6738765249441744675}
   targetingRange: 2.83
   rotationSpeed: 200
-  bps: 3
+  bps: 0.35
+  baseUpgradeCost: 100

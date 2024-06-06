@@ -164,4 +164,4 @@ MonoBehaviour:
   rb: {fileID: 6534471609513683619}
   damageType: 0
   bulletSpeed: 5
-  bulletDamage: 0.25
+  bulletDamage: 0.75

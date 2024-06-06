@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     [Header("Game Variable")]
     [Range(1, 20), Tooltip("The amount of HP that player has")] public int health;
     [Range(10, 200), Tooltip("Number of enimies, that should be killed to reach boss of the level")] public int doomLevel;
-    [Range(500, 1500), Tooltip("Родные узбекские сумы")] public int money;
+    [Range(0, 1500), Tooltip("Родные узбекские сумы")] public int money;
 
     [Header("Path attributes")]
     public Transform startPoint;
@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public bool gamePaused;
     [HideInInspector] public bool overWave;
     [HideInInspector] public bool overDoom;
+
+    public AudioSource winMusic;
 
     private void Awake()
     {
@@ -87,6 +89,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 0;
         gameOver = true;
         UIManager.main.GameWonMenu();
+        winMusic.Play();
     }
 
     private void GameOver()

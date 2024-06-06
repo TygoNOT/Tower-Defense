@@ -201,6 +201,8 @@ MonoBehaviour:
   firingPoint: {fileID: 2840106714643472825}
   targetingRange: 2.83
   rotationSpeed: 200
-  bps: 1
+  bps: 0.25
+  baseUpgradeCost: 100
   slowDuration: 3
   slowFactor: 0.4
+  shot: {fileID: 220936228928527259, guid: 4f0b154147f281d4a86665453082d3eb, type: 3}

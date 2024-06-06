@@ -436,10 +436,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBody: {fileID: 5618054260613278907}
   _animator: {fileID: 2628099008692386811}
-  _maxHealthPoints: 50
+  _maxHealthPoints: 100
   _movementSpeed: 1.1
   _armorType: 0
-  _armorPoint: 0.75
+  _armorPoint: 0.35
   _damage: 20
   _headBounty: 5
   _isDead: 0

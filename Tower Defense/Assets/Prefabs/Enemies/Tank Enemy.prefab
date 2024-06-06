@@ -436,12 +436,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBody: {fileID: 5618054260613278907}
   _animator: {fileID: 0}
-  _maxHealthPoints: 25
-  _movementSpeed: 1.25
+  _maxHealthPoints: 50
+  _movementSpeed: 1.1
   _armorType: 0
   _armorPoint: 0.6
   _damage: 5
-  _headBounty: 5
+  _headBounty: 20
   _isDead: 0
   _currentHealth: 0
   _originalSpeed: 0
@@ -468,7 +468,7 @@ Animator:
   m_GameObject: {fileID: 3080589082214389057}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: beb47d7560ac54546b1e2f82743cc46d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e42179889361b445b8de67b05683a73, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

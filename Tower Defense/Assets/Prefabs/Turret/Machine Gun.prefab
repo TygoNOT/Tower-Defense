@@ -49,12 +49,14 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 4644204016001388838, guid: d12c24740912db9489e35fc902839b08, type: 3}
+  bulletPrefab: {fileID: 4644204016001388838, guid: 1a3347e18e3895744809f2503b1d76c6, type: 3}
   firingPoint: {fileID: 3467291358294538308}
   targetingRange: 2.83
   rotationSpeed: 200
-  bps: 2
+  bps: 3
+  baseUpgradeCost: 100
   firingPoint2: {fileID: 2171328588146425169}
+  shot: {fileID: 874589268176045333, guid: b9d41af1b1101934ca6cbed08adace62, type: 3}
 --- !u!1 &3191552756289442670
 GameObject:
   m_ObjectHideFlags: 0

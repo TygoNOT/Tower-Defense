@@ -54,6 +54,8 @@ MonoBehaviour:
   targetingRange: 2.83
   rotationSpeed: 200
   bps: 2
+  baseUpgradeCost: 100
+  cumming: {fileID: 7338182704874101815, guid: b7922d32831a99e498505011b683061d, type: 3}
   origin: {fileID: 7445943794586115407}
   laserPrefab: {fileID: 4461652866009527816, guid: 5e780b510b6bb3041b461625260ac854, type: 3}
 --- !u!1 &5809174812736570575

@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverMenu;
     [SerializeField] private GameObject _gameWonMenu;
 
+    public AudioSource buttonClick;
     private void Awake()
     {
         main = this;
@@ -41,6 +42,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         LevelManager.main.gamePaused = true;
+        buttonClick.Play();
         _pauseMenu.SetActive(true);
     }
 
@@ -48,22 +50,26 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         LevelManager.main.gamePaused = false;
+        buttonClick.Play();
         _pauseMenu.SetActive(false);
     }
 
     public void NextLvlBtn()
     {
         UnLockLevel();
+        buttonClick.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void RestartBtn()
     {
+        buttonClick.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ExitToMainMenuBtn()
     {
+        buttonClick.Play();
         SceneManager.LoadScene("Main Menu");
     }
 
@@ -85,10 +91,5 @@ public class UIManager : MonoBehaviour
     {
         _gameWonMenu.SetActive(true);
         UnLockLevel();
-    }
-
-    public void DoomLevelNum()
-    {
-
     }
 }

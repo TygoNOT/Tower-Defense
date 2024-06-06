@@ -16,6 +16,7 @@ public class LaserTower : TurretLogical
     [SerializeField]
     public GameObject laserPrefab;
 
+
     private void Start()
     {
         base.Start();

@@ -7,6 +7,16 @@ public class MachGun : TurretLogical
     //MachineGun script for second Firing Point
     [Header("MachGun Attributes")]
     [SerializeField] private Transform firingPoint2;
+    [SerializeField] private AudioSource shot;
+
+    private void Awake()
+    {
+        shot = GameObject.Find("Heavy Shot").GetComponent<AudioSource>();
+        if (shot != null )
+        {
+            Debug.Log("I found it");
+        }
+    }
 
     protected override void Update()
     {
@@ -15,6 +25,7 @@ public class MachGun : TurretLogical
 
     protected override void Shoot()
     {
+            shot.Play();
             GameObject bulletObj1 = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
             GameObject bulletObj2 = Instantiate(bulletPrefab, firingPoint2.position, Quaternion.identity);
 

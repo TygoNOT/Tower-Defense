@@ -165,7 +165,7 @@ MonoBehaviour:
   rb: {fileID: 7397148409036275025}
   damageType: 1
   bulletSpeed: 5
-  bulletDamage: 1
+  bulletDamage: 10
   range: 5
   maxTarget: 2
   enemyLayer:

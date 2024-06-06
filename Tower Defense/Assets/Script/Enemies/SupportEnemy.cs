@@ -71,7 +71,6 @@ public class SupportEnemy : Enemy
             }
 
             HealAlly();
-            Debug.Log("Ally healed");
             _movementSpeed = _originalSpeed;
 
         }

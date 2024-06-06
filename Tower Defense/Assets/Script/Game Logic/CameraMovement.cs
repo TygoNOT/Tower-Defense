@@ -31,6 +31,7 @@ public class CameraMovement : MonoBehaviour
             Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePoint, Vector2.zero);
             Point = hit.transform.gameObject;
+            Debug.Log(Point);
         }
 
         if (Input.GetMouseButton(0))

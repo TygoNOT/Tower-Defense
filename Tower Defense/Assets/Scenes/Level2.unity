@@ -1473,7 +1473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4198609995698386075, guid: 43513df58eb37674d8591d6e08216b4e, type: 3}
       propertyPath: health
-      value: 20
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198609995698386075, guid: 43513df58eb37674d8591d6e08216b4e, type: 3}
+      propertyPath: doomLevel
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 4198609995698386075, guid: 43513df58eb37674d8591d6e08216b4e, type: 3}
       propertyPath: startPoint
@@ -2057,6 +2061,14 @@ PrefabInstance:
     - target: {fileID: 7080317812777098709, guid: f3cbc43d147dd6e47b5b3f3da27b8ee7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8103333439553268256, guid: f3cbc43d147dd6e47b5b3f3da27b8ee7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1647520525}
+    - target: {fileID: 8103333439553268256, guid: f3cbc43d147dd6e47b5b3f3da27b8ee7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseBtn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

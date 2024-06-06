@@ -66,8 +66,6 @@ public class Enemy : MonoBehaviour
             //При достижении конца, враг уничтожается и вычитывает здоровье у врага
             if (LevelManager.main.pathPoints.Length == _pathIndex)
             {
-                Destroy(gameObject);
-                EnemySpawner.onEnemyDestroy.Invoke();
                 DoDamage();
                 return;
             }
@@ -96,6 +94,9 @@ public class Enemy : MonoBehaviour
     protected void DoDamage()
     {
         LevelManager.main.health -= _damage;
+        Destroy(gameObject);
+        EnemySpawner.onEnemyDestroy.Invoke();
+        Debug.Log("Current Player Health: " + LevelManager.main.health);
         Handheld.Vibrate();
     }
 
@@ -124,6 +125,7 @@ public class Enemy : MonoBehaviour
     {
         EnemySpawner.onEnemyDestroy.Invoke();
         LevelManager.main.IncreaseCurrency(_headBounty);
+        LevelManager.main.doomLevel--;
         _isDead = true;
         Destroy(gameObject);
         // Нужно дать денег за убийство врага

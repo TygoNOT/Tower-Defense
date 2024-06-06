@@ -104,7 +104,6 @@ public class EnemySpawner : MonoBehaviour
     private void EnemyKilled()
     {
         _enemiesAlive--;
-        LevelManager.main.doomLevel--;
     }
 
     //Начало новой волны

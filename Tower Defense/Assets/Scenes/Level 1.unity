@@ -2129,7 +2129,7 @@ PrefabInstance:
       objectReference: {fileID: 3080589082214389057, guid: 8c91ad189c9c1da4fa84cf6757234da4, type: 3}
     - target: {fileID: 3527162045793871765, guid: 43513df58eb37674d8591d6e08216b4e, type: 3}
       propertyPath: _baseEnemies
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3527162045793871765, guid: 43513df58eb37674d8591d6e08216b4e, type: 3}
       propertyPath: _enemiesPerSecond
@@ -2173,7 +2173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4198609995698386075, guid: 43513df58eb37674d8591d6e08216b4e, type: 3}
       propertyPath: doomLevel
-      value: 35
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4198609995698386075, guid: 43513df58eb37674d8591d6e08216b4e, type: 3}
       propertyPath: moneyText
@@ -2635,7 +2635,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

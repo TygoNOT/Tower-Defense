@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
         gamePaused = false;
         overWave = false;
         overDoom = false;
+
+        Time.timeScale = 1;
     }
 
     private void Update()
